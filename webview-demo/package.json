@@ -20,25 +20,7 @@
                 "command": "show.webview.demo",
                 "title": "Show Webview Demo"
             }
-        ],
-        "viewsContainers": {
-            "activitybar": [
-                {
-                    "id": "webview-activitybar",
-                    "title": "Webview",
-                    "icon": "./demo.svg"
-                }
-            ]
-        },
-        "views": {
-            "webview-activitybar": [
-                {
-                    "id": "webview-demo",
-                    "name": "Webview Demo",
-                    "type": "webview"
-                }
-            ]
-        }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "yarn run package",

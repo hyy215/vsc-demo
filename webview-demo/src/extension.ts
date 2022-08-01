@@ -1,46 +1,27 @@
 import {
 	ExtensionContext,
 	commands,
-	WebviewViewProvider,
-	WebviewView,
-	WebviewViewResolveContext,
-	CancellationToken,
-	window
+	window,
+	ViewColumn
 } from 'vscode';
 
 export function activate(context: ExtensionContext) {
-	const webview = new WebviewDemo();
 	context.subscriptions.push(
 		commands.registerCommand('show.webview.demo', () => {
-			webview.show();
-		}),
-		window.registerWebviewViewProvider('webview-demo', webview, {
-			webviewOptions: {
-				retainContextWhenHidden: true,
-			},
+			const panel = window.createWebviewPanel(
+				'webviewDemo',
+				'Webview Demo',
+				ViewColumn.One,
+				{}
+			);
+
+			panel.webview.html = getWebviewContent();
 		}),
 	);
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() { }
-
-export class WebviewDemo implements WebviewViewProvider {
-	private _webviewView?: WebviewView;
-
-	async resolveWebviewView(
-		webviewView: WebviewView,
-		context: WebviewViewResolveContext,
-		_token: CancellationToken
-	) {
-		this._webviewView = webviewView;
-		webviewView.webview.html = getWebviewContent();
-	}
-
-	show() {
-		commands.executeCommand("workbench.view.extension.webview-activitybar");
-	}
-}
 
 function getWebviewContent() {
 	return `<!DOCTYPE html>
