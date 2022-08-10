@@ -8,7 +8,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}).then(v => {
 			vscode.window.showInformationMessage('status:' + v.status);
 		}).catch(e => {
-			vscode.window.showErrorMessage(e);
+			vscode.window.showErrorMessage('Error: ' + e);
 		});
 	}));
 }
