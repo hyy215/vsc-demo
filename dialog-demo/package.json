@@ -1,55 +1,28 @@
 {
-    "name": "settings-demo-1",
-    "displayName": "settings-demo-1",
+    "name": "dialog-demo",
+    "displayName": "dialog-demo",
     "description": "",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "engines": {
-        "vscode": "^1.69.0"
+        "vscode": "^1.70.0"
     },
     "categories": [
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "onCommand:open.folder.dialog",
+        "onCommand:open.file.dialog"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "settings-demo.helloWorld",
-                "title": "Hello World"
-            }
-        ],
-        "configuration": [
-            {
-                "id": "demo-2",
-                "title": "demo 2",
-                "order": 1,
-                "properties": {
-                    "demo2.test1.enable.test1": {
-                        "type": "boolean",
-                        "default": true
-                    },
-                    "demo2.test1.format.test1": {
-                        "type": "boolean",
-                        "default": true
-                    }
-                }
+                "command": "open.folder.dialog",
+                "title": "Show Open Folder Dialog"
             },
             {
-                "id": "demo-3",
-                "title": "demo 3",
-                "order": 2,
-                "properties": {
-                    "demo3.test1.enable1.test1": {
-                        "type": "boolean",
-                        "default": true
-                    },
-                    "demo3.test1.format1.test1": {
-                        "type": "boolean",
-                        "default": true
-                    }
-                }
+                "command": "open.file.dialog",
+                "title": "Show Open File Dialog"
             }
         ]
     },
@@ -65,7 +38,7 @@
         "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
-        "@types/vscode": "^1.69.0",
+        "@types/vscode": "^1.70.0",
         "@types/glob": "^7.2.0",
         "@types/mocha": "^9.1.1",
         "@types/node": "16.x",
